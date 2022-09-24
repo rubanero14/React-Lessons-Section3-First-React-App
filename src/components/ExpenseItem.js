@@ -2,11 +2,19 @@ import "./ExpenseItem.css";
 
 // Component Template Section
 function ExpenseItem(props) {
+  const Month = props.date.toLocaleString("en-US", { month: "long" });
+  const Year = props.date.getFullYear();
+  const Day = props.date.toLocaleString("en-US", { day: "2-digit" });
+
   return (
     <div className="expense-item">
-      <h2>{props.date.toISOString()}</h2>
+      <div>
+        <div>{Month}</div>
+        <div>{Year}</div>
+        <div>{Day}</div>
+      </div>
       <div className="expense-item__description">
-        <div>{props.title}</div>
+        <h2>{props.title}</h2>
         <div className="expense-item__price">RM{props.amount}</div>
       </div>
     </div>
