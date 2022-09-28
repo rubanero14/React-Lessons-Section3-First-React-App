@@ -1,18 +1,14 @@
+// Import specific CSS style file for this component
 import "./ExpenseItem.css";
+
+// Import child component for this component
+import ExpenseDate from "./ExpenseDate";
 
 // Component Template Section
 function ExpenseItem(props) {
-  const Month = props.date.toLocaleString("en-US", { month: "long" });
-  const Year = props.date.getFullYear();
-  const Day = props.date.toLocaleString("en-US", { day: "2-digit" });
-
   return (
     <div className="expense-item">
-      <div>
-        <div>{Month}</div>
-        <div>{Year}</div>
-        <div>{Day}</div>
-      </div>
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">RM{props.amount}</div>

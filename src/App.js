@@ -1,3 +1,4 @@
+// Import child component for this component
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
