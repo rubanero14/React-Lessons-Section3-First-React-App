@@ -1,8 +1,8 @@
 // Import child component for this component
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
 
 function App() {
-  const Expenses = [
+  const expenses = [
     {
       id: 1,
       title: "Car Insurance",
@@ -33,28 +33,7 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <p>This is also visible!</p>
-      <ExpenseItem
-        title={Expenses[0].title}
-        amount={Expenses[0].amount}
-        date={Expenses[0].date}
-      />
-      <ExpenseItem
-        title={Expenses[1].title}
-        amount={Expenses[1].amount}
-        date={Expenses[1].date}
-      />
-      `
-      <ExpenseItem
-        title={Expenses[2].title}
-        amount={Expenses[2].amount}
-        date={Expenses[2].date}
-      />
-      <ExpenseItem
-        title={Expenses[3].title}
-        amount={Expenses[3].amount}
-        date={Expenses[3].date}
-      />
-      `
+      <Expenses expensesData={expenses} />
     </div>
   );
 }
