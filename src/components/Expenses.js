@@ -3,11 +3,12 @@ import "./Expenses.css";
 
 // Import child component for this component
 import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
 
 function Expenses(props) {
   // Iterating list of expenses from props object using .map() js utility function
   return (
-    <div className="expenses">
+    <Card className="expenses">
       {props.expensesData.map((expense) => (
         <ExpenseItem
           title={expense.title}
@@ -15,7 +16,7 @@ function Expenses(props) {
           date={expense.date}
         />
       ))}
-    </div>
+    </Card>
   );
 }
 
