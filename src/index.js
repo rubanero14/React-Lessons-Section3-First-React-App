@@ -1,7 +1,11 @@
-import ReactDOM from 'react-dom/client';
+// This import should be imported wheneve the file has JSX codes
+import React from "react";
 
-import './index.css';
-import App from './App';
+// This import is to initiate the React project and compiling to browser based codes
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

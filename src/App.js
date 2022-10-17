@@ -1,7 +1,9 @@
 // Import child component for this component
-import Expenses from "./components/Expenses";
+import React from "react";
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+// Intiating App function using ES6 way (Arrow function), rather than traditional function App(){} function syntax
+const App = () => {
   const expenses = [
     {
       id: 1,
@@ -29,6 +31,22 @@ function App() {
     },
   ];
 
+  // Creating elements in DOM using Dynamic React method
+  // .createElement(htmlElementToBeCreated, config object containing attributes related to this element, ...all other contents between opening and closing of this element)
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement("p", {}, "This is also visible!"),
+  //   React.createElement(
+  //     Expenses, // For custom elements, dont use string but point it similar to pointing a function
+  //     {
+  //       expensesData: expenses,
+  //     }
+  //   )
+  // );
+
+  // Creating elements in DOM using JSX React method
   return (
     <div>
       <h2>Let's get started!</h2>
@@ -36,6 +54,6 @@ function App() {
       <Expenses expensesData={expenses} />
     </div>
   );
-}
+};
 
 export default App;

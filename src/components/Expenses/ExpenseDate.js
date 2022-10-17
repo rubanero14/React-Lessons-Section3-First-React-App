@@ -1,4 +1,5 @@
 // Import specific CSS style file for this component
+import React from "react";
 import "./ExpenseDate.css";
 
 function ExpenseDate(props) {

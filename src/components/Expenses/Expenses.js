@@ -1,11 +1,12 @@
 // Import CSS file for this component
+import React from "react";
 import "./Expenses.css";
 
 // Import child component for this component
 import ExpenseItem from "./ExpenseItem";
-import Card from "./Card";
+import Card from "../UI/Card";
 
-function Expenses(props) {
+const Expenses = (props) => {
   // Iterating list of expenses from props object using .map() js utility function
   return (
     <Card className="expenses">
@@ -18,6 +19,6 @@ function Expenses(props) {
       ))}
     </Card>
   );
-}
+};
 
 export default Expenses;
