@@ -1,6 +1,7 @@
 // Import child component for this component
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 // Intiating App function using ES6 way (Arrow function), rather than traditional function App(){} function syntax
 const App = () => {
@@ -49,8 +50,7 @@ const App = () => {
   // Creating elements in DOM using JSX React method
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is also visible!</p>
+      <NewExpense />
       <Expenses expensesData={expenses} />
     </div>
   );
