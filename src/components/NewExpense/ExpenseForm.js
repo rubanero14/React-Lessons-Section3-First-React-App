@@ -2,20 +2,44 @@ import "./ExpenseForm.css";
 import React, { useState } from "react";
 
 const ExpenseForm = (props) => {
-  // storing input value into reactive useState()
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  // storing input value into multiple states using useState(), managing states separately, this method allows individually update states
+  // const [enteredTitle, setEnteredTitle] = useState("");
+  // const [enteredAmount, setEnteredAmount] = useState("");
+  // const [enteredDate, setEnteredDate] = useState("");
+
+  // this method manages in a single useState, by consolidating usng object structuring, this method only when all states to update
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
   const titleChangeHandler = (e) => {
     // storing the new value into enteredTitle
-    setEnteredTitle(e.target.value);
+    // setEnteredTitle(e.target.value);
+
+    // storing the new values and consolidating with other params together of the inputs
+    // this importing ...userInput allows to get updated values for other missing properties and and mergein in one go, without it, only enteredTitle will be visible in object
+    setUserInput({
+      ...userInput,
+      enteredTitle: e.target.value,
+    });
   };
   const amountChangeHandler = (e) => {
-    setEnteredAmount(e.target.value);
+    // setEnteredAmount(e.target.value);
+
+    setUserInput({
+      ...userInput,
+      enteredAmount: e.target.value,
+    });
   };
   const dateChangeHandler = (e) => {
-    setEnteredDate(e.target.value);
+    // setEnteredDate(e.target.value);
+
+    setUserInput({
+      ...userInput,
+      enteredDate: e.target.value,
+    });
   };
 
   return (
