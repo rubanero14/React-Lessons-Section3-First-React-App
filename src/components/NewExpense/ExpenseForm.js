@@ -7,41 +7,16 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
-  // this method manages in a single useState, by consolidating usng object structuring, this method only when all states to update
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
-
   const titleChangeHandler = (e) => {
     // storing the new value into enteredTitle
     setEnteredTitle(e.target.value);
-
-    // storing the new values and consolidating with other params together of the inputs
-    // this importing ...userInput allows to get updated values for other missing properties and and mergein in one go, without it, only enteredTitle will be visible in object
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: e.target.value,
-    // });
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: e.target.value };
-    // });
   };
   const amountChangeHandler = (e) => {
     setEnteredAmount(e.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: e.target.value,
-    // });
-
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredAmount: e.target.value };
-    // });
   };
   const dateChangeHandler = (e) => {
     setEnteredDate(e.target.value);
+    // Example
     // Bad practice for managing multiple states
     // setUserInput({
     //   ...userInput,
@@ -54,8 +29,19 @@ const ExpenseForm = (props) => {
     // });
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
