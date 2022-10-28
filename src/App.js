@@ -1,11 +1,11 @@
 // Import child component for this component
-import React from "react";
+import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 // Intiating App function using ES6 way (Arrow function), rather than traditional function App(){} function syntax
 const App = () => {
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       id: 1,
       title: "Car Insurance",
@@ -30,12 +30,10 @@ const App = () => {
       amount: 70.0,
       date: new Date(2022, 8, 30),
     },
-  ];
-
+  ]);
   // Adding data passed from child component to object bove
   const addNewExpenseHandler = (newExpense) => {
-    expenses.push(newExpense);
-    return console.log(expenses);
+    setExpenses([...expenses, newExpense]);
   };
 
   // Creating elements in DOM using Dynamic React method
