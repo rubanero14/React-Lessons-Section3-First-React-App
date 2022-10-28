@@ -32,6 +32,12 @@ const App = () => {
     },
   ];
 
+  // Adding data passed from child component to object bove
+  const addNewExpenseHandler = (newExpense) => {
+    expenses.push(newExpense);
+    return console.log(expenses);
+  };
+
   // Creating elements in DOM using Dynamic React method
   // .createElement(htmlElementToBeCreated, config object containing attributes related to this element, ...all other contents between opening and closing of this element)
   // return React.createElement(
@@ -50,7 +56,10 @@ const App = () => {
   // Creating elements in DOM using JSX React method
   return (
     <div>
-      <NewExpense />
+      <NewExpense
+        ExpensesData={expenses}
+        onSavedNewExpense={addNewExpenseHandler}
+      />
       <Expenses expensesData={expenses} />
     </div>
   );

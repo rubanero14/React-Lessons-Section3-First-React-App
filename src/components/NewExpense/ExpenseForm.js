@@ -37,7 +37,8 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    console.log(expenseData);
+    // Passing data to parent via using custom prop functions created in the parent component one level at a time
+    props.onSubmitExpenseForm(expenseData);
 
     //clearing inputs upon submission
     setEnteredTitle("");
