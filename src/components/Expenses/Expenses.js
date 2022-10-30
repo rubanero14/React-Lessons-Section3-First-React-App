@@ -6,7 +6,8 @@ import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
-
+// useState hook is used to dynamically change values of props or data on the DOM realtime, without it, the page is static
+// useState() takes a param, which is variable that will be changed or manipulated, and useState(var) returns an array with 2 values [var, varManipulatorFunction]
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
 
