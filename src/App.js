@@ -8,19 +8,19 @@ const MOCK_DATA = [
     id: 1,
     title: "Car Insurance",
     amount: 483.0,
-    date: new Date(2022, 8, 20),
+    date: new Date(2019, 8, 20),
   },
   {
     id: 2,
     title: "Mortgage",
     amount: 2500.0,
-    date: new Date(2022, 8, 21),
+    date: new Date(2020, 8, 21),
   },
   {
     id: 3,
     title: "Car Service",
     amount: 1300.0,
-    date: new Date(2022, 8, 2),
+    date: new Date(2021, 8, 2),
   },
   {
     id: 4,
@@ -40,21 +40,6 @@ const App = () => {
       return [newExpense, ...expenses];
     });
   };
-
-  // Creating elements in DOM using Dynamic React method
-  // .createElement(htmlElementToBeCreated, config object containing attributes related to this element, ...all other contents between opening and closing of this element)
-  // return React.createElement(
-  //   "div",
-  //   {},
-  //   React.createElement("h2", {}, "Let's get started!"),
-  //   React.createElement("p", {}, "This is also visible!"),
-  //   React.createElement(
-  //     Expenses, // For custom elements, dont use string but point it similar to pointing a function
-  //     {
-  //       expensesData: expenses,
-  //     }
-  //   )
-  // );
 
   // Creating elements in DOM using JSX React method
   return (
