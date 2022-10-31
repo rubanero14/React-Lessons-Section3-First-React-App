@@ -23,6 +23,19 @@ const Expenses = (props) => {
     (expense) => expense.date.getFullYear().toString() === filteredYear
   );
 
+  // We can assign JSX contents as variable here and render conditionally at the template below
+  let expensesContent = <p>No Expenses found!</p>;
+  if (filteredData.length > 0) {
+    expensesContent = filteredData.map((expense) => (
+      <ExpenseItem
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+        key={expense.id}
+      />
+    ));
+  }
+
   // Iterating list of expenses from props object using .map() js utility function
   return (
     <div>
@@ -33,14 +46,43 @@ const Expenses = (props) => {
           onFilterDateChange={filterDateSelectionHandler}
         />
 
-        {filteredData.map((expense) => (
-          <ExpenseItem
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-            key={expense.id}
-          />
-        ))}
+        {/* 
+          In JSX if statement and for loop and other long expressions not
+          allowed, hence for if and for loop statements, ternary operators and
+          .map() are used 
+        */}
+        {/* This is longer syntax for ternary opration, for more readable format look the below method */}
+        {/* {filteredData.length === 0 ? (
+          <p>No Expenses found!</p>
+        ) : (
+          filteredData.map((expense) => (
+            <ExpenseItem
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+              key={expense.id}
+            />
+          ))
+        )} */}
+        {/* 
+            Rendering the same thing above with shorter, cleaner and mroe readable syntax, using && operator trick, 
+            if the condition on the left of &&  met, right code block will fire!
+        */}
+        {/* {filteredData.length === 0 && <p>No Expenses found!</p>}
+        {filteredData.length > 0 &&
+          filteredData.map((expense) => (
+            <ExpenseItem
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+              key={expense.id}
+            />
+          ))} */}
+
+        {/* 
+              There is more shorter syntax using JavaScript method, by outsourcing JSX blocks into variable and render conditionally here
+        */}
+        {expensesContent}
       </Card>
     </div>
   );
