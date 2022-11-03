@@ -16,17 +16,6 @@ const ExpenseForm = (props) => {
   };
   const dateChangeHandler = (e) => {
     setEnteredDate(e.target.value);
-    // Example
-    // Bad practice for managing multiple states
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: e.target.value,
-    // });
-
-    // Recommended Best Practice
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: e.target.value };
-    // });
   };
 
   const submitHandler = (e) => {
@@ -43,7 +32,7 @@ const ExpenseForm = (props) => {
     //clearing inputs upon submission
     setEnteredTitle("");
     setEnteredAmount("");
-    setEnteredDate("");
+    if (expenseData.title !== "") return props.formVisibilityToggle();
   };
 
   return (
@@ -78,6 +67,9 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-actions">
+          <button type="button" onClick={props.formVisibilityToggle}>
+            Cancel
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </div>

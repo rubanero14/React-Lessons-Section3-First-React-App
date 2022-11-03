@@ -1,8 +1,10 @@
 import "./NewExpense.css";
-import React from "react";
+import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 
 const NewExpense = (props) => {
+  const [formIsVisible, setFormIsVisible] = useState(false);
+
   const IdGenerator = (data) => {
     return [...data].length + 1;
   };
@@ -16,9 +18,23 @@ const NewExpense = (props) => {
     props.onSavedNewExpense(expenseData);
   };
 
+  const toggleFormVisibilityHandler = () => {
+    // one-liner code for toggling previous value
+    return setFormIsVisible((val) => !val);
+  };
+
+  // Conditionally rendering components based on state
   return (
     <div className="new-expense">
-      <ExpenseForm onSubmitExpenseForm={saveExpenseDataHandler} />
+      {!formIsVisible && (
+        <button onClick={toggleFormVisibilityHandler}>Add New Expense</button>
+      )}
+      {formIsVisible && (
+        <ExpenseForm
+          onSubmitExpenseForm={saveExpenseDataHandler}
+          formVisibilityToggle={toggleFormVisibilityHandler}
+        />
+      )}
     </div>
   );
 };
