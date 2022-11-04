@@ -44,6 +44,7 @@ const ExpenseForm = (props) => {
             type="text"
             value={enteredTitle}
             onChange={titleChangeHandler}
+            placeholder={`Enter expenses name`}
           />
         </div>
         <div className="new-expense__control">
@@ -54,6 +55,7 @@ const ExpenseForm = (props) => {
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
+            placeholder={`Enter expenditure amount`}
           />
         </div>
         <div className="new-expense__control">
@@ -67,13 +69,15 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-actions">
-          <button type="submit">Add Expense</button>
+          <button type="submit">
+            <i class="bi bi-plus-lg"></i> Add Expense
+          </button>
           <button
             type="button"
             className="red"
             onClick={props.formVisibilityToggle}
           >
-            Cancel
+            <i class="bi bi-x-lg"></i> Cancel
           </button>
         </div>
       </div>

@@ -27,7 +27,17 @@ const NewExpense = (props) => {
   return (
     <div className="new-expense">
       {!formIsVisible && (
-        <button onClick={toggleFormVisibilityHandler}>Add New Expense</button>
+        <div className="new-expense__button-nav">
+          <a
+            href="https://github.com/rubanero14/React-Lessons-Section3-First-React-App"
+            target="_blank"
+          >
+            <i class="bi bi-filetype-jsx"></i> Source Code
+          </a>
+          <button onClick={toggleFormVisibilityHandler}>
+            <i class="bi bi-wallet2"></i> Add New Expense
+          </button>
+        </div>
       )}
       {formIsVisible && (
         <ExpenseForm
