@@ -22,7 +22,7 @@ const ExpenseForm = (props) => {
     e.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -67,10 +67,14 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-actions">
-          <button type="button" onClick={props.formVisibilityToggle}>
+          <button type="submit">Add Expense</button>
+          <button
+            type="button"
+            className="red"
+            onClick={props.formVisibilityToggle}
+          >
             Cancel
           </button>
-          <button type="submit">Add Expense</button>
         </div>
       </div>
     </form>

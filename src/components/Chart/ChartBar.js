@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ChartBar.css";
 
 const ChartBar = (props) => {
   let progressHeight = "0%";
 
-  if (props.max > 0) {
-    progressHeight = Math.round((props.value / props.maxValues) * 100) + "%";
+  if (props.maxValue > 0) {
+    progressHeight = Math.round((props.value / props.maxValue) * 100) + "%";
   }
 
   return (

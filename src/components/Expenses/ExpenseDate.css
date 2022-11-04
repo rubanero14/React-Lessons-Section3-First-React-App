@@ -24,3 +24,27 @@
     font-size: 1.5rem;
     font-weight: bold;
   }
+
+  @media screen and (max-width: 768px) {
+    .card.expense-item {
+      display: block;
+    }
+
+    .expense-date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .expense-item__description h2 {
+      margin-bottom: 10px;
+    }
+
+    .expense-item__description {
+      display: block;
+      text-align: center;
+    }
+  }
